@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-1o6o5+3z4y3GCu2OKzEdtiZ25WmpOoRdrfO5JLcI4cOk4FJswSpbRuD+1fb1EOtZ/Xp5fBSH4bda1eQBl5tbxQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ZCar-Book a car for rent</title>
+
+    <style>
+
+      *,
+      *::before,
+      *::after 
+      {
+          box-sizing: inherit;
+      }
+
+      body 
+      {
+          background: #fff;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+          font-style: normal;
+          font-size: 14px;
+          -webkit-font-smoothing: antialiased;
+          padding: 0;
+          margin: 0;
+          min-height: 100%;
+          box-sizing: border-box;
+          overflow: auto;
+       }
+
+       ::-webkit-scrollbar 
+       {
+           display: none;
+           margin-top: 90px;
+       }
+
+
+       .location-calendar 
+       {
+           direction: ltr;
+           position: relative;
+           width: 60%;
+           height: 60px;
+           display: grid;
+           grid-template-columns: 35% 0.2% 35% 29.8%;
+           background-color: white;
+           border-radius: 30px;
+           font-family: "IBM Plex Sans";
+           margin-top: 120px;
+           margin-left: 180px;
+       }
+
+       .location-calendar-tab
+        {
+           font-family: "IBM Plex Sans";
+           display: flex;
+           justify-content: center;
+           padding-top: 30px;
+           height: 300px;
+        }
+
+        .first
+        {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+        }
+
+        .first button
+        {
+            border-radius: 35px;
+            margin: 20px;
+            width: 250px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .firstsection
+        {
+            background-image: url("pic1.jpg");
+            height: 500px;
+            width: 1600px;
+            background-repeat: no-repeat;
+            margin: 0px;
+            margin-top: 0px;
+        }
+
+        .card-container
+         {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            cursor: pointer;
+            align-items: center;
+            margin: 4rem 0;
+         }
+
+        .card-container .card
+        {
+           flex-basis: 20%;
+           padding: 0.8rem;
+        }
+
+        .card img
+        {
+           width: 100%;
+           transition: 0.5s ease-in-out;
+        }
+
+        .card i
+        {
+           color: goldenrod;
+           margin: 10px 0px;
+        }
+
+        .card button
+         {
+             color: white;
+             background-color: var(--secondary);
+             border: none;
+             outline: none;
+             margin-top: 10px;
+             padding: 5px 15px;
+        }
+
+       .card:hover img, .card:hover h1
+        {
+             width: 80%;
+             color: var(--primary);
+        }
+
+       .card::before img
+        {
+            content: '20% off';
+             width: 25%;
+             height: 25px;
+             line-height: 25px;
+             color: white;
+             position: absolute;
+             top: 0;
+             left: 0;
+             background-color: var(--primary);
+             padding: 0px 4px;
+             transform: rotate(-20deg);
+        }
+
+        .thirdsection
+        {
+           background-color: black;
+           color: white;
+           display: flex;
+           justify-content: space-around;
+           align-items: center;
+           padding: 20px;
+        }
+
+        .thirdsection div 
+        {
+           text-align: center;
+        }
+
+        .forthsection
+        {
+            background-color: rgb(217, 211, 211);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .page-setup
+        {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .page-setup th 
+        {
+           width: 20%;
+        }
+
+        .page-setup img 
+        {
+           display: block;
+           margin: 0 auto 10px;
+        }
+
+        .dashed-line 
+        {
+            width: 70%;
+            border: 2px dashed;
+            margin-top: 20px;
+        }
+
+        .fifthsection
+        {
+            display: flex;
+            justify-content: space-around;
+            width: 900px;
+            height: 300px;
+        }
+
+        .fifthsection .left
+        {
+            color: grey;
+            width: 150px;
+            font-size: larger;
+            margin-left: 50px;
+
+        }
+
+        .fifthsection .right
+        {
+            margin-left: 70px;
+            margin-top: 50px;
+        }
+        
+        .sixthsection select
+        {
+            width: 700px;
+            height: 40px;
+            margin-left: 50px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: grey;
+        }
+
+        .sixthsection select
+        {
+            width: 700px;
+            height: 40px;
+            margin-left: 50px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: grey;
+        }
+
+        .seventhsection
+        {
+            display: flex;
+        }
+
+        .eightsection
+        {
+            text-align: left;
+            padding: 20px;
+         }
+    
+            .eightsection select {
+                width: 70%;
+                height: 40px;
+                margin-bottom: 10px;
+                font-size: 16px;
+                color: #555;
+            }
+        
+
+        .f-first
+        {
+            background-color: grey;
+            margin-top: 30px;
+        }
+
+        .f-first h2
+        {
+            color: white;
+        }
+
+        .f-second
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .f-second a
+        {
+        color: white;
+        align-items: center;
+        margin-top: 30px;
+        size: 12px;
+        }
+
+        .social i
+        {
+            font-size: 24px;
+            margin: 0 10px;
+            color: white;
+        }
+
+        .f-third
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .f-third .left2
+        {
+            font-size: 30px;
+            width: 30px;
+            margin-left: 50px;
+        }
+
+        .abc :hover
+        {
+            border: none;
+
+        }
+
+        .sliding-window {
+            position: fixed;
+            top: 0;
+            left: -25%; 
+            width: 25%;
+            height: 100%;
+            background-color: white;
+            transition: left 0.3s ease; 
+            z-index: 1000; 
+        }
+
+        
+        .sliding-window-open {
+            overflow-y: hidden;
+        }
+
+        .sliding_menu 
+        {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+
+        }
+
+        .abcd
+        {
+            color: red;
+            font-size: 30px;
+            margin-left: 90%;
+            margin-right: 0px;
+            text-decoration: none;
+        }
+
+        .abc
+        {
+            margin: 15px; 
+            margin-left:0px; 
+            width:20px; 
+            height:40px; 
+            color:white; 
+            background-color:black; 
+            border:none;
+            margin-right:20px;
+        }
+
+        .abc:hover
+        {
+            border: none;
+        }
+
+        @media (min-width: 768px) {
+            
+        }
+        
+        @media (max-width: 767px) {
+            
+        }
+
+    </style>
+</head>
+<body>
+    <header class="head1">
+        <nav class="first">
+            <div style="display: flex;">
+            <div id="menu-icon" style="cursor: pointer;">
+            <a href="#"><img src="3 line.png" style="width: 30px; height:30px; margin-top:20px; margin-right:20px"></a>
+            </div>
+            
+            <div class="sliding-window">
+                <a href="home.html" class="abcd">x</a><br>
+                <table>
+                    <tr>
+                        <a href="Login.html" class="sliding_menu">Login or Signup</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                       <a href="#" class="sliding_menu">Change City</a><br>
+                       <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">Change Language</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">Become a host</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">Investor Relation</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">Press Releases</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">ZCar Fleet Vehicles Policy</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">ZCar host vehicles policy</a><br>
+                        <br>
+                    </tr>
+                    <tr>
+                        <a href="#" class="sliding_menu">Help and Support</a><br>
+                    </tr>
+                 </table>
+                </div>
+    
+                <h2 style="color: white;">Zcar
+                    <br>
+                    Never Stop living
+                </h2>
+                </div>
+                <div>
+                <table>
+                    <tr>
+                <th><button>Become a Host</button></th>
+                <th><label style="color: white;">Company Profile</label>
+                    <select class="abc">
+                    <option>Investor Relation</option>
+                    <option>Press Releases</option>
+                    <option>Leadership</option>
+                    </select></th>
+    
+               <th><a href="Login.html" style="color: white; text-decoration:none">Login/Signup</a></th> 
+               </tr>
+            </table>
+        </div>
+        </nav>
+        <section class="second" style="background-color: green; height:40px; margin-bottom:0px;">
+            <a href="#" style="align-items: center; color:white; text-decoration:none;"><center>update: Zcar completes filing of registration statement, soon to be listed on NASDAQ as "ZCAR". Know more.</center></a> 
+        </section>
+    </header>
+
+    <section class="firstsection">
+        <center><h1 style="color: whitesmoke; padding-top:30px; font-size:50px">Rent a car in INDIA</h1></center>
+        <h2 style="color:white"><center>Book your drive now!</center></h2>
+       <section class="location-calendar">
+    <section class="location-calendar-tab">
+        Chennai...
+    </section>
+    <section class="location-calendar-line"></section>
+    <section class="location-calendar-tab">
+        12 Nov '23, 1:00 AM - 12 Nov '23, 9:00 AM
+    </section>
+    <section class="location-calendar-tab">
+        <a href="location.html" style="color: black; text-decoration:none">GET MY CAR</a> 
+    </section>
+</section>
+
+    </section>
+    <section class="secondclass">
+        <h1>Popular Cars in India</h1>
+
+        <div class="card-container">
+            <div class="card">
+              <div>
+                  <img src="pic4.jpg">
+              </div>
+              <h1>Cars</h1>
+              <span>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+              </span>
+              <p>$500.00</p>
+              <button>Add to Cart</button>
+            </div>
+            <div class="card">
+                <div>
+                    <img src="car2.jpg">
+                </div>
+                <h1>Cars</h1>
+                <span>
+                    <i class=" fa fa-star"></i>
+                    <i class=" fa fa-star"></i>
+                    <i class=" fa fa-star"></i>
+                    <i class=" fa fa-star"></i>
+                </span>
+                <p>$500.00</p>
+                <button>Add to Cart</button>
+              </div>
+              <div class="card">
+                <div>
+                    <img src="car3.jpg">
+                </div>
+                <h1>Cars</h1>
+                <span>
+                    <i class=" fa fa-star"></i>
+                    <i class=" fa fa-star"></i>
+                    <i class=" fa fa-star"></i>
+                    <i class=" fa fa-star"></i>
+                </span>
+                <p>$500.00</p>
+                <button>Add to Cart</button>
+              </div>
+            <div class="card">
+              <div>
+                  <img src="car4.jpg">
+              </div>
+              <h1>Cars</h1>
+              <span>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+              </span>
+              <p>$500.00</p>
+              <button>Add to Cart</button>
+            </div>
+            <div class="card">
+              <div>
+                  <img src="car5.jpg">
+              </div>
+              <h1>Cars</h1>
+              <span>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+                  <i class=" fa fa-star"></i>
+              </span>
+              <p>$500.00</p>
+              <button>Add to Cart</button>
+            </div>
+        </section>
+
+        <section class="thirdsection">
+            <div>
+                <h2>25,000+</h2>
+                <p>Verified Cars</p>
+            </div>
+            <div>
+                <h2>20,000+</h2>
+                <p>Trusted Hosts</p>
+            </div>
+            <div>
+                <h2>2 Billion+</h2>
+                <p>KMs Driven</p>
+            </div>
+            <div>
+                <h2>38+</h2>
+                <p>Cities and Counting...</p>
+            </div>
+            <div>
+                <h2>20+</h2>
+                <p>Airports Live On Zcar Platform</p>
+            </div>
+        </section>
+
+        <section class="forthsection">
+           <center><h2 style="color: grey;">HOW TO RENT A CAR IN BANGALORE WITH ZCAR?</h2></center>
+          
+            <table class="page-setup">
+                <tr>
+                    <th><img src="pic5.jpeg">
+                        <br>
+                        log onto <a href="#">ZCar.com</a> or use the app</th>
+                    <th>
+                        <img src="pic6.jpeg">
+                        <br>
+                        Select city, date and time
+                    </th>
+                    <th>
+                        <img src="pic7.jpeg">
+                        <br>
+                        Pick a car of your choice at 0 security deposit
+                    </th>
+                    <th>
+                        <img src="pic8.jpeg">
+                        <br>
+                        Zoomaway with the freedom of unlimited KMs
+                    </th>
+                </tr>
+            </table>
+            <hr class="dashed-line"> 
+        </section>
+
+        <section class="fifthsection">
+            <div class="left">
+             <h1 > Why Choose Zcar Self Drive Cars in India?</h1>
+            </div>
+            <div class="right">
+              <table>
+                <tr>
+                    <th><img src="repair.svg">
+                    <br>
+                    <b>Accessible</b>
+                    <br>
+                    <p>There’s always a Zcar near you</p></th>
+                    <th><img src="earning.svg">
+                        <br>
+                        <b>Secure</b>
+                        <br>
+                        <p>Pay 0 security deposit, get unlimited KMs</p></th>
+                    <th><img src="flexibility.svg">
+                        <br>
+                        <b>Convenient</b>
+                        <br>
+                        <p>From Hatchbacks to SUVs, choose from 25,000+ cars</p></th>
+                </tr>
+              </table>
+            </div>
+        </section>
+
+        <center><h3 style="color: grey;">POPULAR PLACES NEAR YOU</h3></center>
+
+        <section class="sixthsection">
+          <table>
+            <tr>
+                <th>
+                    <select>
+                        <option>Room around the city of leisure</option>
+                        <option>chennai</option>
+                        <option>mangluru</option>
+                        <option>delhi</option>
+                        <option>kolkata</option>
+                        <option>Jamshedpur</option>
+                        <option>Ranchi</option>
+                        <option>Trichy</option>
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Patna</option>
+                    </select>
+                </th>
+                <th>
+                    <select>
+                        <option>...or take off on a short trip to nearby places</option>
+                        <option>chennai</option>
+                        <option>mangluru</option>
+                        <option>delhi</option>
+                        <option>kolkata</option>
+                        <option>Jamshedpur</option>
+                        <option>Ranchi</option>
+                        <option>Trichy</option>
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Patna</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <select>
+                        <option>Popular among professionals...</option>
+                        <option>Microland</option>
+                        <option>IBM India</option>
+                        <option>Infosys</option>
+                    </select>
+                </th>
+                <th>
+                    <select>
+                        <option>...and college students</option>
+                        <option>chennai</option>
+                        <option>mangluru</option>
+                        <option>delhi</option>
+                        <option>kolkata</option>
+                        <option>Jamshedpur</option>
+                        <option>Ranchi</option>
+                        <option>Trichy</option>
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Patna</option>
+                    </select>
+                </th>
+            </tr>
+          </table>
+        </section>
+          
+        <center><h3 style="color: grey;">HEAR FROM OUR GUESTS</h3></center>
+
+        <section class="seventhsection">
+            <article class="host-testimonials-container-blocks-block"><img src="pic13.jpg" class="host-testimonials-container-blocks-block-thumbnail" style="width: 150px;"> <article class="host-testimonials-container-blocks-block-description"><p class="host-testimonials-container-blocks-block-description-name">
+                Aditya, Chennai
+              </p> <img src="https://doav52ie4cv60.cloudfront.net/images/quotes.svg" class="host-testimonials-container-blocks-block-description-image"> <header class="host-testimonials-container-blocks-block-description-title">
+                
+              </header> <article class="host-testimonials-container-blocks-block-description-text">
+                Booked a car for a family trip which was very comfortable and in great condition
+              </article></article></article>
+              <article class="host-testimonials-container-blocks-block"><img src="pic13.jpg" class="host-testimonials-container-blocks-block-thumbnail" style="width: 150px;"> <article class="host-testimonials-container-blocks-block-description"><p class="host-testimonials-container-blocks-block-description-name">
+                Aditya, Chennai
+              </p> <img src="https://doav52ie4cv60.cloudfront.net/images/quotes.svg" class="host-testimonials-container-blocks-block-description-image"> <header class="host-testimonials-container-blocks-block-description-title">
+                
+              </header> <article class="host-testimonials-container-blocks-block-description-text">
+                Booked a car for a family trip which was very comfortable and in great condition
+              </article></article></article>
+              <article class="host-testimonials-container-blocks-block"><img src="pic13.jpg" class="host-testimonials-container-blocks-block-thumbnail" style="width: 150px;"> <article class="host-testimonials-container-blocks-block-description"><p class="host-testimonials-container-blocks-block-description-name">
+                Aditya, Chennai
+              </p> <img src="https://doav52ie4cv60.cloudfront.net/images/quotes.svg" class="host-testimonials-container-blocks-block-description-image"> <header class="host-testimonials-container-blocks-block-description-title">
+                
+              </header> <article class="host-testimonials-container-blocks-block-description-text">
+                Booked a car for a family trip which was very comfortable and in great condition
+              </article></article></article>
+              <article class="host-testimonials-container-blocks-block"><img src="pic13.jpg" class="host-testimonials-container-blocks-block-thumbnail" style="width: 150px;"> <article class="host-testimonials-container-blocks-block-description"><p class="host-testimonials-container-blocks-block-description-name">
+                Aditya, Chennai
+              </p> <img src="https://doav52ie4cv60.cloudfront.net/images/quotes.svg" class="host-testimonials-container-blocks-block-description-image"> <header class="host-testimonials-container-blocks-block-description-title">
+                
+              </header> <article class="host-testimonials-container-blocks-block-description-text">
+                Booked a car for a family trip which was very comfortable and in great condition
+              </article></article></article>
+              <article class="host-testimonials-container-blocks-block"><img src="pic13.jpg" class="host-testimonials-container-blocks-block-thumbnail" style="width: 150px;"> <article class="host-testimonials-container-blocks-block-description"><p class="host-testimonials-container-blocks-block-description-name">
+                Aditya, Chennai
+              </p> <img src="https://doav52ie4cv60.cloudfront.net/images/quotes.svg" class="host-testimonials-container-blocks-block-description-image"> <header class="host-testimonials-container-blocks-block-description-title">
+                
+              </header> <article class="host-testimonials-container-blocks-block-description-text">
+                Booked a car for a family trip which was very comfortable and in great condition
+              </article></article></article>
+        </section>
+
+        <center><h3 style="color: grey;">FAQS</h3></center>
+
+        <section class="eightsection">
+            <table style="align-items: left; justify-content:left;">
+                <tr>
+                    <th>
+                        <select>
+                            <option>Q. How much does it cost to rent a car in india></option>
+                            <option>chennai</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select>
+                            <option>Q. Which website is best to rent a car?</option>
+                            <option>chennai</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <select>
+                            <option>Q. is renting a car cheaper than buying one?</option>
+                            <option></option>
+                            
+                        </select>
+                    </th>
+                    <th>
+                        <select>
+                            <option>Q. What is the process to rent a car in India</option>
+                            <option>chennai</option>
+                            
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <select>
+                            <option>Q. What are the popular types of cars available for rent in India and how do their features vary?</option>
+                            <option>chennai</option>
+                        </select>
+                    </th>
+                </tr>
+              </table>
+        </section>
+        
+        <section class="Ninth">
+
+        </section>
+
+        <footer>
+            <div class="f-first">
+             <h2>CAR RENTAL SERVICES IN INDIA</h2>
+             <div class="f-second">
+             <div class="left1">
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             <a href="#">Self drive cars in Banglore</a><br>
+             </div>
+             <div class="middle1">
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+             </div>
+             <div class="right1">
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+                <a href="#">Self drive cars in Banglore</a><br>
+             </div>
+            </div>
+            <h2> UPCOMING CAR RENTAL AT AIRPORTS IN INDIA</h2>
+            <div class="f-second">
+            <div class="left1">
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            </div>
+            <div class="middle1">
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+            </div>
+            <div class="right1">
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+            </div>
+           </div>
+            <div class="f-second">
+            <div class="left1">
+                <h2>INDONESIA</h2>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <a href="#">Self drive cars in Banglore</a><br>
+            <br>
+            </div>
+            <div class="middle1">
+                <h2>EGYPT</h2>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <a href="#">Self drive cars in Banglore</a><br>
+               <br>
+            </div>
+            </div>
+       <div class="social">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-pinterest"></i> 
+        </div>
+
+        <div class="f-third">
+            <div class="left2">
+             <h1 style="color: black;">Never
+
+                Stop
+                
+                Living.</h1>
+            </div>
+            <div class="right2">
+            <table>
+               <tr>
+                <th><img src="pic9.jpeg"></th>
+                <th><h2>DOWNLOAD ZCAR APP</h2>
+                    <br>
+                    <h3>We have incredible offers, discounts & much more in our app.</h3>
+                </th>
+               </tr>
+               <tr>
+                <th>
+                    Scan this QR code to download app.
+                </th>
+                <th>
+                    <table>
+                        <tr>
+                            <th><img src="pic10.jpeg" style="width: 150px;"></th>
+                            <th><img src="pic11.png" style="width: 150px;"></th>
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+            </table>
+            </div>
+        </div>
+        <hr style="width: 1500px;">
+        <p style="margin-bottom: 0px;"><center>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2012-2023 © Zcar™ Ltd. All rights reserved.</center></p>
+        </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var menuIcon = document.getElementById("menu-icon");
+                var slidingWindow = document.querySelector(".sliding-window");
+    
+                menuIcon.addEventListener("click", function () {
+                    slidingWindow.classList.toggle("sliding-window-open");
+
+                    if (slidingWindow.classList.contains("sliding-window-open")) {
+                        slidingWindow.style.left = "0";
+                    } else {
+                        slidingWindow.style.left = "-33%";
+                    }
+                });
+            });
+        </script>
+    
+        </body>
+        </html>

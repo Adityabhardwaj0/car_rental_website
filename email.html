@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continue with Email ID</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(243, 235, 235);
+        }
+
+        #container {
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        #submit-btn 
+        {
+            display: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <form id="login-form">
+        <a href="Login.html"><img src="back1.jpg" style="width: 30px; margin-left: 0px; margin-top: 40px;"></a>
+        <h2>Enter Email Id</h2>
+        <p>We'll verify if the email is registered with us</p>
+        <input type="text" placeholder="EMAIL ID" style="margin-top: 0px; width:300px; height:30px" id="email_id">
+        <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        function checkInput() 
+            {
+                var eid = document.getElementById('email_id').value;
+    
+                if (eid.trim() !== '') 
+                {
+                    document.getElementById('submit-btn').style.display = 'block';
+                } 
+                else 
+                {
+                    document.getElementById('submit-btn').style.display = 'none';
+                }
+            }
+    </script>
+    
+</body>
+</html>

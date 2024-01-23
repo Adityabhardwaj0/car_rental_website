@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(243, 235, 235);
+        }
+
+        #container {
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        h2 {
+            margin-left: 0; 
+        }
+
+        input {
+            border: none;
+            margin-bottom: 10px;
+            padding: 10px; 
+            border: none;
+            align-items: left;
+            justify-content: left;
+        }
+
+        hr {
+            color: rgb(168, 161, 161);
+            width: 100%; 
+            margin: 10px auto; 
+        }
+
+        a {
+            color: green;
+            text-decoration: none;
+            margin: 10px; 
+            align-items: left;
+        }
+
+        img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto;
+            margin-top: 20px; 
+        }
+
+        #submit-btn 
+        {
+            display: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a href="home.html"><img src="back1.jpg" style="width: 30px; margin-left: 0px; margin-top: 70px;"></a>
+        <h2>Enter Details to login/Sign-up</h2>
+        <form id="login-form">
+        <img src="india.png" style="width: 20px;"><label>+91</label>
+        <input type="text" placeholder="Enter Mobile No."  id="mobile-number" oninput="checkInput()">
+        <hr>
+        <a href="email.html">Continue with Email ID</a>
+        <hr>
+        <a href="Choose_an_account.html">Continue via Social</a>
+        <a href="Choose_an_account.html"><img src="fb_glogon.jpg" style="width: 60px;"></a>
+        <img src="car1.jpg">
+        <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+            function checkInput() 
+            {
+                var mobileNumber = document.getElementById('mobile-number').value;
+    
+                if (mobileNumber.trim() !== '') 
+                {
+                    document.getElementById('submit-btn').style.display = 'block';
+                } 
+                else 
+                {
+                    document.getElementById('submit-btn').style.display = 'none';
+                }
+            }
+    </script>
+</body>
+</html>
